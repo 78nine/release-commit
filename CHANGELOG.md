@@ -1,3 +1,25 @@
+### 1.1.0 (2020-05-19)
+
+##### Build System / Dependencies
+
+* **npm:**
+  *  update `execa` ([2785a85d](https://github.com/78nine/release-commit/commit/2785a85dc7ec28680e845397645d57ab6cd1c62e))
+  *  update `conventional-recommended-bump` ([50acf72a](https://github.com/78nine/release-commit/commit/50acf72a3e9edc50d45bfb7e72754b2cee9c373a))
+  *  update `commander` ([3a54cb1a](https://github.com/78nine/release-commit/commit/3a54cb1aa5ac04beb3656cdcdadeaa05b9f182c3))
+  *  update `chalk` ([60e63ab8](https://github.com/78nine/release-commit/commit/60e63ab8116ab54a51fdd3f7b6873a8a1259cc6f))
+  *  update safe dependencies ([21e4beb8](https://github.com/78nine/release-commit/commit/21e4beb8d76ab3a472c84fef11ba958f5de42083))
+
+##### New Features
+
+* **debug:**  add `debug` option ([312a82ea](https://github.com/78nine/release-commit/commit/312a82ea669ac20597508238f32954b6bd8aa420))
+
+##### Refactors
+
+* **es6:**
+  *  fix last callback to Promise ([c3b45fdc](https://github.com/78nine/release-commit/commit/c3b45fdccc0bf50346f95263e5242150d0fcc2fe))
+  *  use template literals and destructing ([974af7d6](https://github.com/78nine/release-commit/commit/974af7d66984ca8fe8612ea1bbb9ce794ecebab3))
+  *  use ES Promises in place of `when` package ([3ec7d5d2](https://github.com/78nine/release-commit/commit/3ec7d5d2d26bb4ce0ad82e0e124b9efbbe6a2d46))
+
 #### 1.0.3 (2017-12-19)
 
 ##### Build System / Dependencies
