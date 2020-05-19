@@ -34,5 +34,6 @@ $ release-commit --help
     -o, --override [version]  override recommended version number (default: "")
     -p, --postfix [name]      a postfix such as "rc1", "canary" or "beta1" (default: "")
     -t, --tag                 also tag the commit
+    -d, --debug               useful if you face any error; outputs full error stack trace
     -h, --help                display help for command
 ```

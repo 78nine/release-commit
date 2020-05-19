@@ -15,6 +15,7 @@ program
   .option('-o, --override [version]', 'override recommended version number', '')
   .option('-p, --postfix [name]', 'a postfix such as "rc1", "canary" or "beta1"', '')
   .option('-t, --tag', 'also tag the commit')
+  .option('-d, --debug', 'useful if you face any error; outputs full error stack trace')
   .parse(process.argv);
 
 commitRelease({
@@ -29,7 +30,7 @@ commitRelease({
 function onComplete(err, options) {
   if (err) {
     console.error(chalk.red(err.message ? err.message : err));
-    console.error(err.stack); // TODO: only if program.verbose
+    program.debug && console.error(err.stack);
     process.exit(1);
   }
 
