@@ -33,7 +33,7 @@ function getVersion(options) {
         reject(err);
       } else {
         options.version = version.number;
-        options.type = version.type;
+        // options.type = version.type;
 
         resolve(options);
       }

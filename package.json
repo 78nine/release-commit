@@ -13,7 +13,8 @@
   "dependencies": {
     "chalk": "4.0.0",
     "commander": "5.1.0",
-    "conventional-recommended-bump": "1.1.0",
+    "conventional-changelog-angular": "5.0.10",
+    "conventional-recommended-bump": "6.0.9",
     "execa": "0.8.0",
     "generate-changelog": "1.8.0",
     "graceful-fs": "4.2.4",
