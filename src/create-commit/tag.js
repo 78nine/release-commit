@@ -1,9 +1,9 @@
 // 3rd party modules
-var when = require('when');
+const when = require('when');
 
 // Modules
-var childProcess = require('../lib/child-process');
-var checkTagExists = require('./check-tag-exists');
+const childProcess = require('../lib/child-process');
+const checkTagExists = require('./check-tag-exists');
 
 // Public
 module.exports = tag;
@@ -13,19 +13,20 @@ function tag(options) {
   if (options.tag) {
     return checkTagExists(options)
       .then(
-        function (options) {
+        options => {
           return childProcess
             .exec('git tag ' + options.version + (options.force ? ' --force' : ''))
-            .then(function () {
+            .then(() => {
               return options;
             });
         }
       )
       .catch(
-        function (err) {
-          return err;
+        error => {
+          return error;
         }
       );
   }
+
   return when.resolve(options);
 }

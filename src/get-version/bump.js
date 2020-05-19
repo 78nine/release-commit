@@ -1,17 +1,17 @@
 // Modules
-var bump = require('conventional-recommended-bump');
-var when = require('when');
-var getCurrentVersion = require('../lib/get-current-version');
+const bump = require('conventional-recommended-bump');
+const when = require('when');
+const getCurrentVersion = require('../lib/get-current-version');
 
 // Public
 module.exports = {
-  get: get
+  get
 };
 
 // Implementation
 function get(options, done) {
-  var currentVersion = getCurrentVersion(options.directory);
-  var postfix = getPostfix();
+  const currentVersion = getCurrentVersion(options.directory);
+  const postfix = getPostfix();
 
   checkBump()
     .then(bumpVersion)
@@ -27,7 +27,7 @@ function get(options, done) {
   }
 
   function bumpVersion(result) {
-    var v = {major: 0, minor: 0, patch: 0};
+    const v = {major: 0, minor: 0, patch: 0};
 
     switch (result.releaseType) {
       case 'major':
@@ -51,10 +51,10 @@ function get(options, done) {
   }
 
   function checkBump() {
-    return when.promise(function (resolve, reject) {
+    return when.promise((resolve, reject) => {
       bump({
         preset: 'angular'
-      }, function (err, result) {
+      }, (err, result) => {
         if (err) {
           reject(err);
         } else {

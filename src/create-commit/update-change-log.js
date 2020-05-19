@@ -1,25 +1,25 @@
 // Node modules
-var path = require('path');
+const path = require('path');
 
 // 3rd party modules
-var changelog = require('generate-changelog');
-var when = require('when');
+const changelog = require('generate-changelog');
+const when = require('when');
 
 // Modules
-var fs = require('../lib/fs');
+const fs = require('../lib/fs');
 
 // Public
 module.exports = updateChangeLog;
 
 // Implementation
 function updateChangeLog(options) {
-  return when.promise(function (resolve, reject) {
-    var config = {
+  return when.promise((resolve, reject) => {
+    const config = {
       exclude: ['chore', 'style']
     };
-    var readFile = path.join(options.directory, 'CHANGELOG.md');
-    var writeFile = path.join(options.directory, '.CHANGELOG.md');
-    var writeStream = fs.createWriteStream(writeFile);
+    const readFile = path.join(options.directory, 'CHANGELOG.md');
+    const writeFile = path.join(options.directory, '.CHANGELOG.md');
+    const writeStream = fs.createWriteStream(writeFile);
 
     writeStream.on('finish', onWriteEnd);
 

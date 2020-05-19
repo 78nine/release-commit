@@ -2,17 +2,14 @@
 
 // 3rd party modules
 const chalk = require('chalk');
-const { program } = require('commander');
-
-// Data
-const package = require('./package.json');
+const {program} = require('commander');
 
 // Modules
 const commitRelease = require('./src/commit-release');
 
 // Implementation
 program
-  .version(package.version)
+  .version(require('./package.json').version)
   .option('-f, --force', 'overwrite tag if it exists already')
   .option('-n, --no-verify', 'skip git commit hooks')
   .option('-o, --override [version]', 'override recommended version number', '')
@@ -35,6 +32,7 @@ function onComplete(err, options) {
     console.error(err.stack); // TODO: only if program.verbose
     process.exit(1);
   }
+
   console.log(chalk.green(
     'Release ' + options.version + ' committed' +
     (options.tag ? ' and tagged' : '') +

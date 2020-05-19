@@ -1,6 +1,6 @@
 // Modules
-var createCommit = require('./create-commit');
-var getVersion = require('./get-version');
+const createCommit = require('./create-commit');
+const getVersion = require('./get-version');
 
 // Public
 module.exports = commitRelease;

@@ -1,9 +1,9 @@
 // 3rd party modules
-var fs = require('graceful-fs');
-var whenNode = require('when/node');
+const fs = require('graceful-fs');
+const whenNode = require('when/node');
 
 // Modules
-var rateLimit = require('./rate-limit');
+const rateLimit = require('./rate-limit');
 
 // Public
 module.exports = {

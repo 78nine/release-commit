@@ -1,8 +1,8 @@
 // 3rd party modules
-var execa = require('execa');
+const execa = require('execa');
 
 // Modules
-var rateLimit = require('./rate-limit');
+const rateLimit = require('./rate-limit');
 
 // Public
 module.exports = {
