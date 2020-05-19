@@ -3,7 +3,6 @@ const path = require('path');
 
 // 3rd party modules
 const changelog = require('generate-changelog');
-const when = require('when');
 
 // Modules
 const fs = require('../lib/fs');
@@ -13,7 +12,7 @@ module.exports = updateChangeLog;
 
 // Implementation
 function updateChangeLog(options) {
-  return when.promise((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     const config = {
       exclude: ['chore', 'style']
     };

@@ -18,8 +18,7 @@
     "execa": "4.0.1",
     "generate-changelog": "1.8.0",
     "graceful-fs": "4.2.4",
-    "package-json-to-readme": "2.1.1",
-    "when": "3.7.8"
+    "package-json-to-readme": "2.1.1"
   },
   "devDependencies": {
     "cz-conventional-changelog": "3.2.0",
@@ -45,12 +44,19 @@
   },
   "xo": {
     "extends": "xo-space",
-    "envs": [ "node", "es6" ],
+    "envs": [
+      "node",
+      "es6"
+    ],
     "esnext": true,
     "rules": {
       "promise/prefer-await-to-then": "off",
-      "no-console": [ "warn" ],
-      "no-debugger": [ "error" ]
+      "no-console": [
+        "warn"
+      ],
+      "no-debugger": [
+        "error"
+      ]
     }
   },
   "config": {

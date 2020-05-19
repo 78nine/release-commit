@@ -18,24 +18,29 @@ program
   .option('-d, --debug', 'useful if you face any error; outputs full error stack trace')
   .parse(process.argv);
 
-commitRelease({
+const options = {
   directory: process.cwd(),
   force: program.force,
   tag: program.tag,
   noVerify: !program.verify,
   overrideVersion: program.override,
   postfix: program.postfix
-}, onComplete);
+};
 
-function onComplete(err, options) {
-  if (err) {
-    console.error(chalk.red(err.message ? err.message : err));
-    program.debug && console.error(err.stack);
-    process.exit(1);
-  }
+commitRelease(options)
+  .then(onSuccess)
+  .catch(onError);
 
-  console.log(chalk.green(
-    'Release ' + options.version + ' committed' +
-    (options.tag ? ' and tagged' : '') +
-    ', changelog updated.'));
+function onSuccess({ version, tag }) {
+  console.log(
+    chalk.green(
+      `Release ${version} committed${(tag ? ' and tagged' : '')}; changelog updated.`
+    )
+  );
+}
+
+function onError(err) {
+  console.error(chalk.red(err.message ? err.message : err));
+  program.debug && console.error(err.stack);
+  process.exit(1);
 }

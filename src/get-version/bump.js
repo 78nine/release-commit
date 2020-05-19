@@ -1,6 +1,5 @@
 // Modules
 const bump = require('conventional-recommended-bump');
-const when = require('when');
 const getCurrentVersion = require('../lib/get-current-version');
 
 // Public
@@ -11,7 +10,7 @@ module.exports = {
 // Implementation
 function get(options, done) {
   const currentVersion = getCurrentVersion(options.directory);
-  const postfix = getPostfix();
+  const postfix = getPostfix(options);
 
   checkBump()
     .then(bumpVersion)
@@ -51,7 +50,7 @@ function get(options, done) {
   }
 
   function checkBump() {
-    return when.promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
       bump({
         preset: 'angular'
       }, (err, result) => {
@@ -63,8 +62,8 @@ function get(options, done) {
       });
     });
   }
+}
 
-  function getPostfix() {
-    return options.postfix ? '-' + options.postfix : '';
-  }
+function getPostfix({ postfix }) {
+  return postfix ? `-${postfix}` : '';
 }

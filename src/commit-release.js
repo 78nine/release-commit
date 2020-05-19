@@ -6,17 +6,19 @@ const getVersion = require('./get-version');
 module.exports = commitRelease;
 
 // Implementation
-function commitRelease(options, done) {
-  getVersion(options)
-    .then(createCommit)
-    .then(onSuccess, onError)
-    .catch(onError);
+function commitRelease(options) {
+  return new Promise((resolve, reject) => {
+    getVersion(options)
+      .then(createCommit)
+      .then(onSuccess)
+      .catch(onError);
 
-  function onSuccess() {
-    done(null, options);
-  }
+    function onSuccess() {
+      resolve(options);
+    }
 
-  function onError(message) {
-    done(message);
-  }
+    function onError(message) {
+      reject(message);
+    }
+  });
 }

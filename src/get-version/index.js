@@ -1,5 +1,4 @@
 // 3rd party modules
-const when = require('when');
 const explodeVersion = require('../lib/explode-version');
 const getCurrentVersion = require('../lib/get-current-version');
 const bump = require('./bump');
@@ -23,10 +22,10 @@ function getVersion(options) {
       return type;
     });
 
-    return when.resolve(options);
+    return Promise.resolve(options);
   }
 
-  return when.promise((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     bump.get(options, (err, version) => {
       if (err) {
         reject(err);
