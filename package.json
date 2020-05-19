@@ -2,25 +2,30 @@
   "name": "release-commit",
   "description": "Commit (and tag) a release with automatic CHANGELOG.md and DEPENDENCIES.md updates",
   "version": "1.0.3",
-  "author": "Greg Twardowski (https://github.com/tvardy)",
+  "main": "./index.js",
   "bin": {
     "release-commit": "./index.js"
   },
+  "scripts": {
+    "release": "node index -t",
+    "lint": "xo --fix"
+  },
   "dependencies": {
-    "chalk": "2.3.0",
-    "commander": "2.12.2",
-    "conventional-recommended-bump": "1.1.0",
-    "execa": "0.8.0",
-    "generate-changelog": "1.7.0",
-    "graceful-fs": "4.1.11",
-    "package-json-to-readme": "2.1.0",
-    "when": "3.7.8"
+    "chalk": "4.0.0",
+    "commander": "5.1.0",
+    "conventional-changelog-angular": "5.0.10",
+    "conventional-recommended-bump": "6.0.9",
+    "execa": "4.0.1",
+    "generate-changelog": "1.8.0",
+    "graceful-fs": "4.2.4",
+    "package-json-to-readme": "2.1.1"
   },
   "devDependencies": {
-    "cz-conventional-changelog": "2.1.0",
-    "xo": "0.18.2"
+    "cz-conventional-changelog": "3.2.0",
+    "eslint-config-xo-space": "0.24.0",
+    "xo": "0.30.0"
   },
-  "issues": "https://github.com/tvardy/release-commit/issues",
+  "issues": "https://github.com/78nine/release-commit/issues",
   "keywords": [
     "changelog",
     "dependencies",
@@ -32,26 +37,35 @@
     "release",
     "workflow"
   ],
-  "license": "MIT",
-  "main": "./index.js",
+  "author": "Greg Twardowski (https://github.com/tvardy)",
   "repository": {
     "type": "git",
-    "url": "git://github.com/tvardy/release-commit.git"
-  },
-  "scripts": {
-    "release": "node index -t",
-    "lint": "xo --fix"
+    "url": "git://github.com/78nine/release-commit.git"
   },
   "xo": {
+    "extends": "xo-space",
     "envs": [
-      "node"
+      "node",
+      "es6"
     ],
-    "esnext": false,
-    "space": 2
+    "esnext": true,
+    "rules": {
+      "promise/prefer-await-to-then": "off",
+      "no-console": [
+        "warn"
+      ],
+      "no-debugger": [
+        "error"
+      ]
+    }
   },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  }
+  },
+  "engines": {
+    "node": "10.x"
+  },
+  "license": "MIT"
 }

@@ -28,11 +28,12 @@ $ release-commit --help
   Usage: release-commit [options]
 
   Options:
-  
-      -h, --help                output usage information
-      -f, --force               overwrite tag if it exists already
-      -n, --no-verify           skip git commit hooks
-      -o, --override [version]  override recommended version number
-      -p, --postfix [name]      a postfix such as "rc1", "canary" or "beta1"
-      -t, --tag                 also tag the commit
+    -V, --version             output the version number
+    -f, --force               overwrite tag if it exists already
+    -n, --no-verify           skip git commit hooks
+    -o, --override [version]  override recommended version number (default: "")
+    -p, --postfix [name]      a postfix such as "rc1", "canary" or "beta1" (default: "")
+    -t, --tag                 also tag the commit
+    -d, --debug               useful if you face any error; outputs full error stack trace
+    -h, --help                display help for command
 ```

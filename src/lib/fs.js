@@ -1,9 +1,6 @@
 // 3rd party modules
-var fs = require('graceful-fs');
-var whenNode = require('when/node');
-
-// Modules
-var rateLimit = require('./rate-limit');
+const fs = require('graceful-fs');
+const {promisify} = require('util');
 
 // Public
 module.exports = {
@@ -15,5 +12,5 @@ module.exports = {
 };
 
 function wrap(fn) {
-  return rateLimit(whenNode.lift(fn));
+  return promisify(fn);
 }

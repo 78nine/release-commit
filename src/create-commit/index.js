@@ -1,11 +1,11 @@
 // Modules
-var bump = require('./bump');
-var checkVersion = require('./check-version');
-var commit = require('./commit');
-var stage = require('./stage');
-var tag = require('./tag');
-var updateChangeLog = require('./update-change-log');
-var updateDependencyLog = require('./update-dependency-log');
+const bump = require('./bump');
+const checkVersion = require('./check-version');
+const commit = require('./commit');
+const stage = require('./stage');
+const tag = require('./tag');
+const updateChangeLog = require('./update-change-log');
+const updateDependencyLog = require('./update-dependency-log');
 
 // Public
 module.exports = createCommit;

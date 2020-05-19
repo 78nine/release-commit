@@ -1,25 +1,25 @@
 // Definitions
-var levels = ['major', 'minor', 'patch', 'postfix'];
+const levels = ['major', 'minor', 'patch', 'postfix'];
 
 // Public
 module.exports = explodeVersion;
 
 // Implementation
-function explodeVersion(str) {
-  return str.split('.')
-    .reduce(assignLevel, {});
+function explodeVersion(string) {
+  return string.split('.')
+    .reduce(assignLevel, {}); // eslint-disable-line unicorn/no-fn-reference-in-iterator
 }
 
-function assignLevel(obj, num, i) {
+function assignLevel(object, number, i) {
   if (i === 2) {
-    num = num.split('-');
-    obj[levels[i + 1]] = num[1] || '';
-    num = num[0];
+    number = number.split('-');
+    object[levels[i + 1]] = number[1] || '';
+    number = number[0];
   }
 
   if (i < 3) {
-    obj[levels[i]] = parseInt(num, 10);
+    object[levels[i]] = Number.parseInt(number, 10);
   }
 
-  return obj;
+  return object;
 }

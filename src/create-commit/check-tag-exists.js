@@ -1,23 +1,23 @@
-// 3rd party modules
-var when = require('when');
-
 // Modules
-var childProcess = require('../lib/child-process');
+const {exec} = require('../lib/child-process');
 
 // Public
 module.exports = checkTagExists;
 
 // Implementation
 function checkTagExists(options) {
-  if (options.force) {
-    return when.resolve(true);
+  if (!options.tag || options.force) {
+    return Promise.resolve(options);
   }
 
-  return childProcess.exec('git tag --list ' + options.version)
-    .then(function (output) {
-      if (output.stdout === options.version) {
-        return when.reject('A tag with name "' + options.version + '" already exists.');
+  const {version} = options;
+
+  return exec(`git tag --list ${version}`)
+    .then(({stdout}) => {
+      if (stdout === version) {
+        return Promise.reject(new Error(`A tag with name "${version}" already exists.`));
       }
+
       return options;
     });
 }
