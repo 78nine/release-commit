@@ -26,15 +26,13 @@ function getVersion(options) {
   }
 
   return new Promise((resolve, reject) => {
-    bump.get(options, (err, version) => {
-      if (err) {
-        reject(err);
-      } else {
+    bump.get(options)
+      .then(version => {
         options.version = version.number;
         options.type = version.type;
 
         resolve(options);
-      }
-    });
+      })
+      .catch(err => reject(err))
   });
 }
