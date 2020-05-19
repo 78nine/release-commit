@@ -6,6 +6,6 @@ var rateLimit = require('./rate-limit');
 
 // Public
 module.exports = {
-  exec: rateLimit(execa.shell),
+  exec: rateLimit(execa.command),
   spawn: execa
 };

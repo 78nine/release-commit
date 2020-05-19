@@ -32,6 +32,7 @@ commitRelease({
 function onComplete(err, options) {
   if (err) {
     console.error(chalk.red(err.message ? err.message : err));
+    console.error(err.stack); // TODO: only if program.verbose
     process.exit(1);
   }
   console.log(chalk.green(
