@@ -6,5 +6,5 @@ module.exports = getCurrentVersion;
 
 // Implementation
 function getCurrentVersion(dir) {
-  return explodeVersion(require(dir + '/package.json').version);
+  return explodeVersion(require(`${dir}/package.json`).version);
 }

@@ -5,7 +5,7 @@ const path = require('path');
 const pathToPackageJsonToReadme = require.resolve('package-json-to-readme');
 
 // Modules
-const childProcess = require('../lib/child-process');
+const {spawn} = require('../lib/child-process');
 const fs = require('../lib/fs');
 
 // Public
@@ -15,11 +15,8 @@ module.exports = updateDependencyLog;
 function updateDependencyLog(options) {
   const pkgPath = path.resolve(options.directory, 'package.json');
   const logFile = path.resolve(options.directory, 'DEPENDENCIES.md');
-  return childProcess.spawn('node', [pathToPackageJsonToReadme, '--no-footer', pkgPath])
-    .then(logData => {
-      return fs.writeFile(logFile, logData.stdout);
-    })
-    .then(() => {
-      return options;
-    });
+
+  return spawn('node', [pathToPackageJsonToReadme, '--no-footer', pkgPath])
+    .then(({stdout}) => fs.writeFile(logFile, stdout))
+    .then(() => options);
 }

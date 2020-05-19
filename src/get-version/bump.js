@@ -14,7 +14,7 @@ function get(options, done) {
 
   checkBump()
     .then(bumpVersion)
-    .then(onSuccess, onError)
+    .then(onSuccess)
     .catch(onError);
 
   function onSuccess(version) {
