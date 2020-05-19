@@ -1,6 +1,6 @@
 // 3rd party modules
 const fs = require('graceful-fs');
-const { promisify } = require('util');
+const {promisify} = require('util');
 
 // Public
 module.exports = {

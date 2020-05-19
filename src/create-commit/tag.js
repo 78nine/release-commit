@@ -1,5 +1,5 @@
 // Modules
-const { exec } = require('../lib/child-process');
+const {exec} = require('../lib/child-process');
 const checkTagExists = require('./check-tag-exists');
 
 // Public

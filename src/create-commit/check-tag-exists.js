@@ -1,5 +1,5 @@
 // Modules
-const { exec } = require('../lib/child-process');
+const {exec} = require('../lib/child-process');
 
 // Public
 module.exports = checkTagExists;
@@ -10,12 +10,12 @@ function checkTagExists(options) {
     return Promise.resolve(options);
   }
 
-  const { version } = options;
+  const {version} = options;
 
   return exec(`git tag --list ${version}`)
-    .then(({ stdout }) => {
+    .then(({stdout}) => {
       if (stdout === version) {
-        return Promise.reject(`A tag with name "${version}" already exists.`);
+        return Promise.reject(new Error(`A tag with name "${version}" already exists.`));
       }
 
       return options;

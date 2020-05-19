@@ -31,7 +31,7 @@ commitRelease(options)
   .then(onSuccess)
   .catch(onError);
 
-function onSuccess({ version, tag }) {
+function onSuccess({version, tag}) {
   console.log(
     chalk.green(
       `Release ${version} committed${(tag ? ' and tagged' : '')}; changelog updated.`
@@ -41,6 +41,9 @@ function onSuccess({ version, tag }) {
 
 function onError(err) {
   console.error(chalk.red(err.message ? err.message : err));
-  program.debug && console.error(err.stack);
+  if (program.debug) {
+    console.error(err.stack);
+  }
+
   process.exit(1);
 }

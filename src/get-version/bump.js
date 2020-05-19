@@ -64,6 +64,6 @@ function get(options, done) {
   }
 }
 
-function getPostfix({ postfix }) {
+function getPostfix({postfix}) {
   return postfix ? `-${postfix}` : '';
 }
