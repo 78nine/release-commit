@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "chalk": "4.0.0",
-    "commander": "2.12.2",
+    "commander": "5.1.0",
     "conventional-recommended-bump": "1.1.0",
     "execa": "0.8.0",
     "generate-changelog": "1.8.0",
@@ -41,7 +41,6 @@
     "type": "git",
     "url": "git://github.com/78nine/release-commit.git"
   },
-  "license": "MIT",
   "xo": {
     "envs": [
       "node"
@@ -56,5 +55,6 @@
   },
   "engines": {
     "node": "10.x"
-  }
+  },
+  "license": "MIT"
 }

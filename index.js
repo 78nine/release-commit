@@ -1,14 +1,18 @@
 #!/usr/bin/env node
 
 // 3rd party modules
-var chalk = require('chalk');
-var program = require('commander');
+const chalk = require('chalk');
+const { program } = require('commander');
+
+// Data
+const package = require('./package.json');
 
 // Modules
-var commitRelease = require('./src/commit-release');
+const commitRelease = require('./src/commit-release');
 
 // Implementation
 program
+  .version(package.version)
   .option('-f, --force', 'overwrite tag if it exists already')
   .option('-n, --no-verify', 'skip git commit hooks')
   .option('-o, --override [version]', 'override recommended version number', '')
