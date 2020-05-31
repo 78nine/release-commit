@@ -33,6 +33,6 @@ function getVersion(options) {
 
         resolve(options);
       })
-      .catch(err => reject(err))
+      .catch(error => reject(error));
   });
 }

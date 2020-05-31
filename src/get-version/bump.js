@@ -49,7 +49,7 @@ function get(options) {
         type: result.releaseType
       };
     }
-  })
+  });
 }
 
 function checkBump() {

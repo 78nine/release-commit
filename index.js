@@ -32,7 +32,7 @@ commitRelease(options)
   .catch(onError);
 
 function onSuccess({version, tag}) {
-  console.log(
+  console.log( // eslint-disable-line no-console
     chalk.green(
       `Release ${version} committed${(tag ? ' and tagged' : '')}; changelog updated.`
     )
@@ -40,9 +40,9 @@ function onSuccess({version, tag}) {
 }
 
 function onError(err) {
-  console.error(chalk.red(err.message ? err.message : err));
+  console.error(chalk.red(err.message ? err.message : err)); // eslint-disable-line no-console
   if (program.debug) {
-    console.error(err.stack);
+    console.error(err.stack); // eslint-disable-line no-console
   }
 
   process.exit(1);

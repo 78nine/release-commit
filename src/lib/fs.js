@@ -4,13 +4,10 @@ const {promisify} = require('util');
 
 // Public
 module.exports = {
+  access: fs.access,
   createReadStream: fs.createReadStream,
   createWriteStream: fs.createWriteStream,
   rename: fs.rename,
   unlink: fs.unlink,
-  writeFile: wrap(fs.writeFile)
+  writeFile: promisify(fs.writeFile)
 };
-
-function wrap(fn) {
-  return promisify(fn);
-}
