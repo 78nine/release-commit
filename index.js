@@ -5,6 +5,7 @@ const chalk = require('chalk');
 const {program} = require('commander');
 
 // Modules
+const c = require('./src/lib/console');
 const commitRelease = require('./src/commit-release');
 
 // Implementation
@@ -32,7 +33,7 @@ commitRelease(options)
   .catch(onError);
 
 function onSuccess({version, tag}) {
-  console.log( // eslint-disable-line no-console
+  c.log(
     chalk.green(
       `Release ${version} committed${(tag ? ' and tagged' : '')}; changelog updated.`
     )
@@ -40,9 +41,9 @@ function onSuccess({version, tag}) {
 }
 
 function onError(err) {
-  console.error(chalk.red(err.message ? err.message : err)); // eslint-disable-line no-console
+  c.error(chalk.red(err.message ? err.message : err));
   if (program.debug) {
-    console.error(err.stack); // eslint-disable-line no-console
+    c.error(err.stack);
   }
 
   process.exit(1);
