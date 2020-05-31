@@ -34,14 +34,24 @@ function updateChangeLog(options) {
     }
 
     function readRest() {
-      fs.createReadStream(readFile).pipe(writeStream);
+      const rs = fs.createReadStream(readFile);
+
+      rs.on('error', () => writeStream.end());
+
+      rs.pipe(writeStream);
     }
 
     function onWriteEnd(err) {
       if (err) {
         reject(err);
       } else {
-        fs.unlink(readFile, onUnlink);
+        fs.access(readFile, err => {
+          if (err) {
+            onUnlink();
+          } else {
+            fs.unlink(readFile, onUnlink);
+          }
+        });
       }
     }
 
