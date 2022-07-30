@@ -1,3 +1,22 @@
+### 1.2.0 (2022-07-30)
+
+##### Build System / Dependencies
+
+* **npm:**
+  *  update deps ([cd7c0552](https://github.com/78nine/release-commit/commit/cd7c05523a694f2bcb77ff4c96730e8d4c2cf063))
+  *  update deps ([76fcf0d0](https://github.com/78nine/release-commit/commit/76fcf0d0db4a43ac0e66f975b3bb746857c067f8))
+  *  update deps ([9c176220](https://github.com/78nine/release-commit/commit/9c1762201f9e386749466e1bdc9565dbea72be10))
+
+##### New Features
+
+* **changelog:**
+  *  disallow unknown commit types ([4302b52f](https://github.com/78nine/release-commit/commit/4302b52f675aabe725b7ca051748101294596a64))
+  *  ignore `other` section ([1f993749](https://github.com/78nine/release-commit/commit/1f993749fc9963367dfcb33e13f72fa01f5e95ff))
+
+##### Bug Fixes
+
+* **changelog:**  fix error when CHANGELOG.md does not exists ([70fc22dc](https://github.com/78nine/release-commit/commit/70fc22dc5af659718dba4c6d4dd1c2303f65dd98))
+
 ### 1.1.0 (2020-05-19)
 
 ##### Build System / Dependencies

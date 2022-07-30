@@ -30,7 +30,7 @@ npm install release-commit --save
 
 - [cz-conventional-changelog](https://ghub.io/cz-conventional-changelog): Commitizen adapter following the conventional-changelog format.
 - [eslint-config-xo-space](https://ghub.io/eslint-config-xo-space): ESLint shareable config for XO with 2-space indent
-- [xo](https://ghub.io/xo): JavaScript/TypeScript linter with great defaults
+- [xo](https://ghub.io/xo): JavaScript/TypeScript linter (ESLint wrapper) with great defaults
 
 ## License
 
