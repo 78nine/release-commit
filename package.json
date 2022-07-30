@@ -16,7 +16,7 @@
     "conventional-changelog-angular": "5.0.13",
     "conventional-recommended-bump": "6.1.0",
     "execa": "5.1.1",
-    "generate-changelog": "1.8.0",
+    "generate-changelog": "github:78nine/generate-changelog#fix/exclude-other",
     "graceful-fs": "4.2.10",
     "package-json-to-readme": "2.1.1"
   },
