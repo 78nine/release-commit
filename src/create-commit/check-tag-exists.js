@@ -15,7 +15,7 @@ function checkTagExists(options) {
   return exec(`git tag --list ${version}`)
     .then(({stdout}) => {
       if (stdout === version) {
-        return Promise.reject(new Error(`A tag with name "${version}" already exists.`));
+        throw new Error(`A tag with name "${version}" already exists.`);
       }
 
       return options;

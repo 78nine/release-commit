@@ -14,7 +14,7 @@ module.exports = updateChangeLog;
 function updateChangeLog(options) {
   return new Promise((resolve, reject) => {
     const config = {
-      exclude: ['chore', 'style', 'other']
+      exclude: ['chore', 'style', 'other'],
     };
     const readFile = path.join(options.directory, 'CHANGELOG.md');
     const writeFile = path.join(options.directory, '.CHANGELOG.md');
@@ -41,12 +41,12 @@ function updateChangeLog(options) {
       rs.pipe(writeStream);
     }
 
-    function onWriteEnd(err) {
-      if (err) {
-        reject(err);
+    function onWriteEnd(error) {
+      if (error) {
+        reject(error);
       } else {
-        fs.access(readFile, err => {
-          if (err) {
+        fs.access(readFile, error => {
+          if (error) {
             onUnlink();
           } else {
             fs.unlink(readFile, onUnlink);
@@ -55,17 +55,17 @@ function updateChangeLog(options) {
       }
     }
 
-    function onUnlink(err) {
-      if (err) {
-        reject(err);
+    function onUnlink(error) {
+      if (error) {
+        reject(error);
       } else {
         fs.rename(writeFile, readFile, finish);
       }
     }
 
-    function finish(err) {
-      if (err) {
-        reject(err);
+    function finish(error) {
+      if (error) {
+        reject(error);
       } else {
         resolve(options);
       }

@@ -9,10 +9,8 @@ module.exports = tag;
 function tag(options) {
   if (options.tag) {
     return checkTagExists(options)
-      .then(options => {
-        return exec(`git tag ${options.version}${(options.force ? ' --force' : '')}`)
-          .then(() => options);
-      })
+      .then(options => exec(`git tag ${options.version}${(options.force ? ' --force' : '')}`)
+        .then(() => options))
       .catch(error => error);
   }
 

@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 // 3rd party modules
+const process = require('process');
 const chalk = require('chalk');
 const {program} = require('commander');
 
@@ -25,7 +26,7 @@ const options = {
   tag: program.tag,
   noVerify: !program.verify,
   overrideVersion: program.override,
-  postfix: program.postfix
+  postfix: program.postfix,
 };
 
 commitRelease(options)
@@ -35,15 +36,15 @@ commitRelease(options)
 function onSuccess({version, tag}) {
   c.log(
     chalk.green(
-      `Release ${version} committed${(tag ? ' and tagged' : '')}; changelog updated.`
-    )
+      `Release ${version} committed${(tag ? ' and tagged' : '')}; changelog updated.`,
+    ),
   );
 }
 
-function onError(err) {
-  c.error(chalk.red(err.message ? err.message : err));
+function onError(error) {
+  c.error(chalk.red(error.message ? error.message : error));
   if (program.debug) {
-    c.error(err.stack);
+    c.error(error.stack);
   }
 
   process.exit(1);

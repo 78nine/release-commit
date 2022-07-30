@@ -7,7 +7,7 @@ module.exports = explodeVersion;
 // Implementation
 function explodeVersion(string) {
   return string.split('.')
-    .reduce(assignLevel, {}); // eslint-disable-line unicorn/no-fn-reference-in-iterator
+    .reduce(assignLevel, {});
 }
 
 function assignLevel(object, number, i) {
