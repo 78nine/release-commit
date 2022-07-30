@@ -15,6 +15,7 @@ function updateChangeLog(options) {
   return new Promise((resolve, reject) => {
     const config = {
       exclude: ['chore', 'style', 'other'],
+      allowUnknown: false,
     };
     const readFile = path.join(options.directory, 'CHANGELOG.md');
     const writeFile = path.join(options.directory, '.CHANGELOG.md');
