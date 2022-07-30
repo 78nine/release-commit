@@ -1,7 +1,7 @@
 {
   "name": "release-commit",
   "description": "Commit (and tag) a release with automatic CHANGELOG.md and DEPENDENCIES.md updates",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "main": "./index.js",
   "bin": {
     "release-commit": "./index.js"
@@ -13,17 +13,17 @@
   "dependencies": {
     "chalk": "4.0.0",
     "commander": "5.1.0",
-    "conventional-changelog-angular": "5.0.10",
-    "conventional-recommended-bump": "6.0.9",
-    "execa": "4.0.2",
-    "generate-changelog": "1.8.0",
-    "graceful-fs": "4.2.4",
+    "conventional-changelog-angular": "5.0.13",
+    "conventional-recommended-bump": "6.1.0",
+    "execa": "5.1.1",
+    "generate-changelog": "github:78nine/generate-changelog#fix/exclude-other",
+    "graceful-fs": "4.2.10",
     "package-json-to-readme": "2.1.1"
   },
   "devDependencies": {
-    "cz-conventional-changelog": "3.2.0",
-    "eslint-config-xo-space": "0.24.0",
-    "xo": "0.30.0"
+    "cz-conventional-changelog": "3.3.0",
+    "eslint-config-xo-space": "0.33.0",
+    "xo": "0.51.0"
   },
   "issues": "https://github.com/78nine/release-commit/issues",
   "keywords": [
@@ -50,7 +50,11 @@
     ],
     "esnext": true,
     "rules": {
+      "import/extensions": "off",
       "promise/prefer-await-to-then": "off",
+      "unicorn/prefer-module": "off",
+      "unicorn/no-array-callback-reference": "off",
+      "unicorn/no-array-reduce": "off",
       "no-console": [
         "warn"
       ],
@@ -65,7 +69,8 @@
     }
   },
   "engines": {
-    "node": "10.x"
+    "node": ">10.x",
+    "npm": ">6.x"
   },
   "license": "MIT"
 }

@@ -4,7 +4,7 @@ const getCurrentVersion = require('../lib/get-current-version');
 
 // Public
 module.exports = {
-  get
+  get,
 };
 
 // Implementation
@@ -37,8 +37,7 @@ function get(options) {
           v.major = currentVersion.major;
           v.minor = currentVersion.minor + 1;
           break;
-        case 'patch':
-        default:
+        default: // Also for: `case 'patch':`
           v.major = currentVersion.major;
           v.minor = currentVersion.minor;
           v.patch = currentVersion.patch + 1;
@@ -46,7 +45,7 @@ function get(options) {
 
       return {
         number: [v.major, v.minor, v.patch].join('.') + postfix,
-        type: result.releaseType
+        type: result.releaseType,
       };
     }
   });
@@ -55,10 +54,10 @@ function get(options) {
 function checkBump() {
   return new Promise((resolve, reject) => {
     bump({
-      preset: 'angular'
-    }, (err, result) => {
-      if (err) {
-        reject(err);
+      preset: 'angular',
+    }, (error, result) => {
+      if (error) {
+        reject(error);
       } else {
         resolve(result);
       }

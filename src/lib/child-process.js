@@ -4,5 +4,5 @@ const execa = require('execa');
 // Public
 module.exports = {
   exec: execa.command,
-  spawn: execa
+  spawn: execa,
 };

@@ -1,6 +1,6 @@
 // 3rd party modules
-const fs = require('graceful-fs');
 const {promisify} = require('util');
+const fs = require('graceful-fs');
 
 // Public
 module.exports = {
@@ -9,5 +9,5 @@ module.exports = {
   createWriteStream: fs.createWriteStream,
   rename: fs.rename,
   unlink: fs.unlink,
-  writeFile: promisify(fs.writeFile)
+  writeFile: promisify(fs.writeFile),
 };
