@@ -14,7 +14,7 @@ module.exports = updateChangeLog;
 function updateChangeLog(options) {
   return new Promise((resolve, reject) => {
     const config = {
-      exclude: ['chore', 'style']
+      exclude: ['chore', 'style', 'other']
     };
     const readFile = path.join(options.directory, 'CHANGELOG.md');
     const writeFile = path.join(options.directory, '.CHANGELOG.md');
